@@ -21,7 +21,7 @@ export default resolver.pipe(
         ...data,
         choices: {
           upsert: data.choices.map((choice) => ({
-            where: { id: choice.id },
+            where: { id: choice.id || 0 },
             create: { text: choice.text },
             update: { text: choice.text },
           })),
